@@ -18,7 +18,7 @@ canvas{position:fixed;left:0;top:0;width:100vw;height:100vh;display:block;touch-
 /* ============================== BASICS ============================== */
 const glc=document.getElementById('gl'),uic=document.getElementById('ui'),ctx=uic.getContext('2d');
 let DPR=1,W=0,H=0,S=1,OX=0,OY=0,GDPR=1;
-function resize(){DPR=Math.min(2,window.devicePixelRatio||1);W=innerWidth;H=innerHeight;uic.width=Math.round(W*DPR);uic.height=Math.round(H*DPR);
+function resize(){DPR=Math.min(1.5,window.devicePixelRatio||1);W=innerWidth;H=innerHeight;uic.width=Math.round(W*DPR);uic.height=Math.round(H*DPR);
   GDPR=Math.min(1.5,DPR);glc.width=Math.round(W*GDPR);glc.height=Math.round(H*GDPR);S=Math.min(W/1280,H/720);OX=(W-1280*S)/2;OY=(H-720*S)/2;if(typeof onGLResize==='function')onGLResize();}
 addEventListener('resize',resize);
 const TAU=Math.PI*2,clamp=(v,a,b)=>v<a?a:v>b?b:v,rnd=(a,b)=>a+Math.random()*(b-a),lerp=(a,b,t)=>a+(b-a)*t;
